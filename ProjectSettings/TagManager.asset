@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - personaje
   layers:
   - Default
   - TransparentFX
@@ -11,8 +12,8 @@ TagManager:
   - background
   - Water
   - UI
-  - background2
-  - 
+  - mapa
+  - camara
   - 
   - 
   - 
@@ -43,4 +44,10 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: mapa
+    uniqueID: 1535104767
+    locked: 0
+  - name: camara
+    uniqueID: 2889722371
     locked: 0
