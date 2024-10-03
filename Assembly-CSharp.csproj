@@ -66,9 +66,9 @@
     <Compile Include="Assets\Scripts\Moneda.cs" />
     <Compile Include="Assets\Scripts\AdioManager.cs" />
     <Compile Include="Assets\Scripts\fondoMapa.cs" />
+    <Compile Include="Assets\Scripts\characterController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Enemigo.cs" />
-    <Compile Include="Assets\characterController.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
   </ItemGroup>
   <ItemGroup>

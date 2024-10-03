@@ -4260,7 +4260,7 @@ GameObject:
   - component: {fileID: 243454740}
   m_Layer: 6
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: mapa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16626,8 +16626,8 @@ GameObject:
   - component: {fileID: 1266844771}
   - component: {fileID: 1266844770}
   - component: {fileID: 1266844773}
-  - component: {fileID: 1266844774}
-  m_Layer: 6
+  - component: {fileID: 1266844775}
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -16794,7 +16794,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1266844774
+--- !u!114 &1266844775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16803,17 +16803,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1266844767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 743911968b8dad646ab14b04efe4163a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f7c4bc97bfb6144ebf0d53aecf4bcd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 7
+  velocidad: 5
   fuerzaSalto: 5
-  fuerzaGolpe: 10
+  fuerzaGolpe: 5
   saltosMaximos: 1
   capaSuelo:
     serializedVersion: 2
-    m_Bits: 64
-  sonidoSalto: {fileID: 0}
+    m_Bits: 1
+  sonidoSalto: {fileID: 8300000, guid: 8f2e12ebe02b4484e8ea61ae9b3a9676, type: 3}
 --- !u!213 &1321092134
 Sprite:
   m_ObjectHideFlags: 0
