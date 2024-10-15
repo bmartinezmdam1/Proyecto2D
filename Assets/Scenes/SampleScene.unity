@@ -7496,7 +7496,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -16681,7 +16681,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17538369, y: -0.028856516}
+  m_Offset: {x: -0.17538369, y: -0.037534326}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -16692,7 +16692,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.87755954, y: 1.1634293}
+  m_Size: {x: 0.87755954, y: 1.180785}
   m_EdgeRadius: 0
 --- !u!50 &1266844771
 Rigidbody2D:
@@ -16720,7 +16720,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1266844772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16807,12 +16807,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
-  fuerzaSalto: 5
+  fuerzaSalto: 7
   fuerzaGolpe: 5
   saltosMaximos: 1
   capaSuelo:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   sonidoSalto: {fileID: 8300000, guid: 8f2e12ebe02b4484e8ea61ae9b3a9676, type: 3}
 --- !u!213 &1321092134
 Sprite:

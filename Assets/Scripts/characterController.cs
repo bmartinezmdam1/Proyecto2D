@@ -33,27 +33,28 @@ public class CharacterController : MonoBehaviour
         ProcesarSalto();
     }
 
-    bool EstaEnSuelo()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, new Vector2(boxCollider.bounds.size.x, boxCollider.bounds.size.y), 0f, Vector2.down, 0.2f, capaSuelo);
+   bool EstaEnSuelo()
+{
+     RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, new Vector2(boxCollider.bounds.size.x, boxCollider.bounds.size.y), 0f, Vector2.down, 0.2f, capaSuelo);
         return raycastHit.collider != null;
-    }
+}
 
     void ProcesarSalto()
+{
+    if (EstaEnSuelo())
     {
-        if (EstaEnSuelo())
-        {
-            saltosRestantes = saltosMaximos;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
-        {
-            saltosRestantes--;
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
-            rigidBody.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
-            AudioManager.Instance.ReproducirSonido(sonidoSalto);
-        }
+        saltosRestantes = saltosMaximos; // Resetear saltos al tocar el suelo
     }
+
+    if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
+    {
+        saltosRestantes--;
+        rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
+        rigidBody.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+        AudioManager.Instance.ReproducirSonido(sonidoSalto);
+    }
+}
+
 
     void ProcesarMovimiento()
     {
@@ -121,5 +122,10 @@ public class CharacterController : MonoBehaviour
         }
         // Si ya está en suelo activamos el movimiento.
         puedeMoverse = true;
+    }
+
+    public void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(transform.position + Vector3.down * 0.2f, new Vector2(0.8f, 1.2f));
     }
 }
