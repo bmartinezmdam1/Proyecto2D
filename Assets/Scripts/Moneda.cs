@@ -5,7 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
 
-    public int valor = 1;
+    public int valor;
     public GameManager gameManager;
     public AudioClip coinSFX;
 
