@@ -8,6 +8,7 @@ public class Enemigo : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     AudioSource audioSource;
 
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -20,7 +21,9 @@ public class Enemigo : MonoBehaviour
         {
             audioSource.Play();
             if (!puedeAtacar) return;
+            Animator animator = GetComponent<Animator>();
 
+            animator.SetBool("Collision", true);
             puedeAtacar = false;
             Color color = spriteRenderer.color;
             color.a = 0.5f;
@@ -35,6 +38,9 @@ public class Enemigo : MonoBehaviour
 
     void ReactivarAtaque()
     {
+        Animator animator = GetComponent<Animator>();
+
+        animator.SetBool("Collision", false);
         puedeAtacar = true;
         Color c = spriteRenderer.color;
         c.a = 1f;
