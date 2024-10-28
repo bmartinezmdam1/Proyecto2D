@@ -4,21 +4,41 @@ using System.Collections;
 public class Enemigo2 : MonoBehaviour
 {
     public float cooldownAtaque;
-    public float velocidadMovimiento = 1f; // Velocidad de movimiento hacia la izquierda
+    public float velocidadMovimiento = 1f; // Velocidad de movimiento
     private bool puedeAtacar = true;
     private SpriteRenderer spriteRenderer;
-    AudioSource audioSource;
+    private AudioSource audioSource;
+
+    private Vector3 posicionInicial;
+    public float distanciaMovimiento = 5f; // Distancia que el enemigo avanza antes de regresar
+    private bool moviendoIzquierda = true;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        posicionInicial = transform.position;
     }
 
     void Update()
     {
-        // Movimiento constante hacia la izquierda
-        transform.position += Vector3.left * velocidadMovimiento * Time.deltaTime;
+        // Movimiento constante
+        if (moviendoIzquierda)
+        {
+            transform.position += Vector3.left * velocidadMovimiento * Time.deltaTime;
+            if (Vector3.Distance(transform.position, posicionInicial) >= distanciaMovimiento)
+            {
+                moviendoIzquierda = false;
+            }
+        }
+        else
+        {
+            transform.position += Vector3.right * velocidadMovimiento * Time.deltaTime;
+            if (Vector3.Distance(transform.position, posicionInicial) <= 0.1f)
+            {
+                moviendoIzquierda = true;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -28,15 +48,12 @@ public class Enemigo2 : MonoBehaviour
             audioSource.Play();
             if (!puedeAtacar) return;
             Animator animator = GetComponent<Animator>();
-
             puedeAtacar = false;
             Color color = spriteRenderer.color;
             color.a = 0.5f;
             spriteRenderer.color = color;
-
             GameManager.Instance.PerderVida();
             other.gameObject.GetComponent<CharacterController>().AplicarGolpe();
-
             Invoke("ReactivarAtaque", cooldownAtaque);
         }
     }
@@ -44,7 +61,6 @@ public class Enemigo2 : MonoBehaviour
     void ReactivarAtaque()
     {
         Animator animator = GetComponent<Animator>();
-
         puedeAtacar = true;
         Color c = spriteRenderer.color;
         c.a = 1f;
