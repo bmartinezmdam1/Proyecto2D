@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valor: 3
   gameManager: {fileID: 0}
-  coinSFX: {fileID: 0}
+  coinSFX: {fileID: 8300000, guid: 11f63dfaa0cef424e9d70cefababdbcb, type: 3}
 --- !u!61 &2548410182259697154
 BoxCollider2D:
   m_ObjectHideFlags: 0

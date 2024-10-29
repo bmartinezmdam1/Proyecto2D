@@ -46,4 +46,13 @@ public class GameManager : MonoBehaviour
         hud.DesactivarVida(vidas);
         SceneManager.LoadScene(1);
     }
+
+    public void cambiarDeNivel()
+    {
+        vidas = 0;
+        hud.DesactivarVida(vidas);
+        SceneManager.LoadScene(1);
+    }
+
+
 }

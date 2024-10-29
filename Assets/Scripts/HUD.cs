@@ -25,6 +25,10 @@ public class HUD : MonoBehaviour
     {
         platanos.text = platanosTotales.ToString();
     }
+    public int getPlatanos(int platanosTotales)
+    {
+        return platanosTotales;
+    }
 
     public void DesactivarVida(int indice)
     {
