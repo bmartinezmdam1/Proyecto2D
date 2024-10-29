@@ -8,6 +8,7 @@ public class Enemigo2 : MonoBehaviour
     private bool puedeAtacar = true;
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
+    public HUD hud;
 
     private Vector3 posicionInicial;
     public float distanciaMovimiento = 5f; // Distancia que el enemigo avanza antes de regresar
@@ -44,6 +45,23 @@ public class Enemigo2 : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
+        {
+            audioSource.Play();
+            if (!puedeAtacar) return;
+            Animator animator = GetComponent<Animator>();
+            puedeAtacar = false;
+            Color color = spriteRenderer.color;
+            color.a = 0.5f;
+            spriteRenderer.color = color;
+            GameManager.Instance.PerderVida();
+            other.gameObject.GetComponent<CharacterController>().AplicarGolpe();
+            Invoke("ReactivarAtaque", cooldownAtaque);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
         {
             audioSource.Play();
             if (!puedeAtacar) return;

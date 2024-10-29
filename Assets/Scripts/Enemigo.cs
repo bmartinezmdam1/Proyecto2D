@@ -7,6 +7,7 @@ public class Enemigo : MonoBehaviour
     private bool puedeAtacar = true;
     private SpriteRenderer spriteRenderer;
     AudioSource audioSource;
+    public HUD hud;
 
 
     void Start()
@@ -45,5 +46,22 @@ public class Enemigo : MonoBehaviour
         Color c = spriteRenderer.color;
         c.a = 1f;
         spriteRenderer.color = c;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            audioSource.Play();
+            if (!puedeAtacar) return;
+            Animator animator = GetComponent<Animator>();
+            puedeAtacar = false;
+            Color color = spriteRenderer.color;
+            color.a = 0.5f;
+            spriteRenderer.color = color;
+            GameManager.Instance.PerderVida();
+            other.gameObject.GetComponent<CharacterController>().AplicarGolpe();
+            Invoke("ReactivarAtaque", cooldownAtaque);
+        }
     }
 }
