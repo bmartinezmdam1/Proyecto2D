@@ -47,8 +47,11 @@ public class Enemigo2 : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             audioSource.Play();
+            
             if (!puedeAtacar) return;
             Animator animator = GetComponent<Animator>();
+            animator.SetBool("Collision", true);
+
             puedeAtacar = false;
             Color color = spriteRenderer.color;
             color.a = 0.5f;
@@ -66,6 +69,7 @@ public class Enemigo2 : MonoBehaviour
             audioSource.Play();
             if (!puedeAtacar) return;
             Animator animator = GetComponent<Animator>();
+            animator.SetBool("Collision", true);
             puedeAtacar = false;
             Color color = spriteRenderer.color;
             color.a = 0.5f;
@@ -79,9 +83,11 @@ public class Enemigo2 : MonoBehaviour
     void ReactivarAtaque()
     {
         Animator animator = GetComponent<Animator>();
+        animator.SetBool("Collision", false);
         puedeAtacar = true;
         Color c = spriteRenderer.color;
         c.a = 1f;
         spriteRenderer.color = c;
     }
+    
 }
