@@ -6,19 +6,19 @@ using System;
 
 public class HUD : MonoBehaviour
 {
-  public void Start()
-{
-    if (GameManager.Instance != null)
+    public void Start()
     {
-        ActualizarPlatanos(GameManager.Instance.platanosTotales);
+        if (GameManager.Instance != null)
+        {
+            ActualizarPlatanos(GameManager.Instance.platanosTotales);
+        }
     }
-}
     public TextMeshProUGUI platanos;
     public GameObject[] vidas;
 
     public void Update()
     {
-    platanos.text = GameManager.Instance.platanosTotales.ToString();
+        platanos.text = GameManager.Instance.platanosTotales.ToString();
     }
 
     public void ActualizarPlatanos(int platanosTotales)
@@ -32,7 +32,7 @@ public class HUD : MonoBehaviour
 
     public void DesactivarVida(int indice)
     {
-       vidas[indice].SetActive(false);
+        vidas[indice].SetActive(false);
     }
     public void DesactivarTodasVidas()
     {

@@ -15,7 +15,7 @@ TagManager:
   - UI
   - mapa
   - camara
-  - 
+  - botones
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: camara
     uniqueID: 2889722371
+    locked: 0
+  - name: botones
+    uniqueID: 1548887213
     locked: 0

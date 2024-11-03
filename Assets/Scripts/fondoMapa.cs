@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class fondoMapa : MonoBehaviour
 {
@@ -22,8 +23,10 @@ public class fondoMapa : MonoBehaviour
         {
 
             // Perdemos una vida.
-            GameManager.Instance.PerderVidaFondo();
-            hud.DesactivarTodasVidas();
+            if (other.gameObject.CompareTag("Player"))
+            {
+                SceneManager.LoadScene(0);
+            }
 
             // Aplicamos golpe al personaje.
         }
